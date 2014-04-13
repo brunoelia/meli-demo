@@ -57,8 +57,6 @@ function getToken(){
 
 		$update = "UPDATE auth SET access_token = '$return_access_token', expires = ADDTIME(NOW(), '06:00:00'), refresh_token =  '$refresh_token' WHERE user_id = 7958450";
 
-		var_dump($update);
-
 		$result = mysqli_query($con, $update);
 
 		mysqli_close($con);
