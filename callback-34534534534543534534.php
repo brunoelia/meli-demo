@@ -3,8 +3,8 @@
 include 'index.php';
 
 
-//$inputJSON = file_get_contents('php://input');
-//$input= json_decode( $inputJSON, TRUE );
+$inputJSON = file_get_contents('php://input');
+$input= json_decode( $inputJSON, TRUE );
 
 // {"user_id":1234,"resource":"\/orders\/123123123","topic":"orders","received":"2014-04-13T07:06:58+00:00","sent":"2014-04-13T07:06:58+00:00"}
 
