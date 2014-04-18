@@ -1,5 +1,5 @@
 <?php
 
-echo $_ENV['MYSQL_DB_PASSWORD'];
+echo "Hello Meli App";
 
 ?>
