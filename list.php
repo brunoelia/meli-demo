@@ -40,6 +40,9 @@
                   <tbody>
                   <?php
                    $rows = DB::query("SELECT * FROM my_orders ORDER BY id DESC");
+
+                   var_dump($rows);
+                   
                    foreach ($rows as $row) {
                             echo '<tr>';
                             echo '<td>'. $row['id'] . '</td>';
