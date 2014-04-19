@@ -15,7 +15,6 @@ if($input['topic'] == 'orders'){
     $order = json_decode(file_get_contents('https://api.mercadolibre.com' . $input['resource'] . "?access_token=" . get_access_token()),TRUE);
 
     if($order == NULL){
-    	http_response_code(500);
     	exit('error obtener la orden');
     }
 
@@ -44,7 +43,6 @@ if($input['topic'] == 'orders'){
     }
 
 }else{
-	http_response_code(400);
 	exit('Request MALO :(');
 }
 
