@@ -8,9 +8,9 @@ $CURL_OPTS = array(
 	);
 
 
-$CLIENT_ID = "151021044208185";
+$CLIENT_ID = "1160552409874215";
 
-$CLIENT_SECRET = "kOu0A6Nujm623PbdUaPevs3CEfFHnKTx";
+$CLIENT_SECRET = "sWJh5DA8wTsQzYuxPDdZMt0cxjvoJ028";
 
 function get_access_token(){
 
