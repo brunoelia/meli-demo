@@ -20,6 +20,8 @@ if($input['topic'] == 'orders'){
 
     $orderId = $order['id'];
 
+    DB::startTransaction();
+
     $rows = DB::query("SELECT * FROM my_orders WHERE meli_order_id = %i ", $order['id']);
 
     //new order - array_merge
@@ -37,10 +39,12 @@ if($input['topic'] == 'orders'){
     } else{
 		DB::update('my_orders', array(
 			'product' => $order['order_items'][0]['item']['title'],
-		  	'status' => $order['status'] . 'update',
+		  	'status' => $order['status'],
 		  	'customer' => ('email:' . $order['buyer']['email'] . '/ tel :' . $order['buyer']['phone']['area_code'] . $order['buyer']['phone']['number'] )
 			), "meli_order_id=%i", $order['id']);
     }
+
+    DB::commit();
 
 }else{
 	exit('Request MALO :(');
