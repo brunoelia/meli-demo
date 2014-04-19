@@ -34,7 +34,7 @@
                       <th>Id</th>
                       <th>Producto</th>
                       <th>Estado</th>
-                      <th>Detalle</th>
+                      <th>Comprador</th>
                     </tr>
                   </thead>
                   <tbody>

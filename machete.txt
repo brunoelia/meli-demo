@@ -1,0 +1,137 @@
+## Acceso
+
+MELI_DEV_CONF_BS / melidevconf@gmail.com
+
+meliconf
+
+## PATH APP
+
+/Applications/MAMP/htdocs/meli-demo
+
+## START MAMP SERVER
+
+/Applications/MAMP/MAMP.app/Contents/MacOS/MAM
+
+## DEV LOGS
+
+tail -f  /Applications/MAMP/logs/php_error.log
+
+## DEV APP
+
+http://localhost:8888/meli-demo/list.php
+
+## PROD APP
+
+meli-demo.herokuapp.com/list.php
+
+## GET TOKEN
+
+curl -X POST -d "grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECREAT" https://api.mercadolibre.com/oauth/token
+
+
+## SIMULATE NOTIFICATION
+
+curl -X POST -d '{"user_id":1234,"resource":"\/orders\/830649557","topic":"orders","received":"2014-04-13T07:35:03+00:00","sent":"2014-04-13T07:35:03+00:00"}' "http://localhost:8888/meli-demo/notifications.php"
+
+## TABLE APP
+
+DROP TABLE `my_orders`;
+
+CREATE  TABLE `my_orders` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `product` VARCHAR(64) NULL ,
+  `status` VARCHAR(16) NULL ,
+  `customer` VARCHAR(256) NULL ,
+  `meli_order_id` BIGINT NULL ,
+  PRIMARY KEY (`id`) );
+
+INSERT INTO `my_orders` (`product`, `status`, `customer`) VALUES ('Iphone 5', 'new', 'pablo@gmail.com');
+
+## INDEX
+
+ALTER TABLE `my_orders` 
+ADD UNIQUE INDEX `meli_order_id_UNIQUE` (`meli_order_id` ASC) ;
+
+## FEEDBACK
+
+ALTER TABLE `my_orders` ADD COLUMN `feedback` VARCHAR(256) NULL  AFTER `meli_order_id` ;
+
+## ORDEN EXAMPLE
+
+{
+  "id":830649557,
+  "status":"confirmed",
+  "status_detail":null,
+  "date_created":"2014-04-13T03:32:11.000-04:00",
+  "date_closed":"2014-04-13T03:32:11.000-04:00",
+  "last_updated":"2014-04-13T03:32:11.000-04:00",
+  "order_items":[
+    {
+      "item":{
+        "id":"MLA503023042",
+        "title":"Item De Testeo - Por Favor No Ofertar",
+        "variation_id":null,
+        "variation_attributes":[
+
+        ]
+      },
+      "quantity":1,
+      "unit_price":100,
+      "currency_id":"ARS"
+    }
+  ],
+  "total_amount":100,
+  "currency_id":"ARS",
+  "buyer":{
+    "id":157113208,
+    "nickname":"FDDS2250609",
+    "email":"dsfsdfs333d@gmail.com",
+    "phone":{
+      "area_code":" ",
+      "number":"3432423",
+      "extension":null
+    },
+    "first_name":"dsfdsfds",
+    "last_name":"fdsfds",
+    "billing_info":{
+      "doc_type":null,
+      "doc_number":null
+    }
+  },
+  "seller":{
+    "id":7958450,
+    "nickname":"xxxx",
+    "email":"xxxxx@gmail.com",
+    "phone":{
+      "area_code":"011",
+      "number":"45449993",
+      "extension":null
+    },
+    "first_name":"Pablo",
+    "last_name":"Moretti"
+  },
+  "payments":[
+
+  ],
+  "feedback":{
+    "purchase":{
+      "date_created":"2014-04-13T03:43:51.000-04:00",
+      "fulfilled":true,
+      "rating":"positive",
+      "status":"ACTIVE"
+    },
+    "sale":{
+      "date_created":"2014-04-13T03:51:03.000-04:00",
+      "fulfilled":true,
+      "rating":"positive",
+      "status":"ACTIVE"
+    }
+  },
+  "shipping":{
+    "status":"to_be_agreed"
+  },
+  "tags":[
+    "not_delivered",
+    "not_paid"
+  ]
+}
