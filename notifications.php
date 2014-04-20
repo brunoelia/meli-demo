@@ -20,8 +20,6 @@ if($input['topic'] == 'orders'){
 
     $orderId = $order['id'];
 
-    DB::startTransaction();
-
     $rows = DB::query("SELECT * FROM my_orders WHERE meli_order_id = %i ", $order['id']);
 
     //new order - array_merge
@@ -44,7 +42,6 @@ if($input['topic'] == 'orders'){
 			), "meli_order_id=%i", $order['id']);
     }
 
-    DB::commit();
 
 }else{
 	exit('Request MALO :(');
