@@ -2,6 +2,8 @@
 
 MELI_DEV_CONF_BS / melidevconf@gmail.com
 
+MELI_DEV_CONF / juan.lopez.003@gmail.com / pa..
+
 meliconf
 
 ## PATH APP
