@@ -16,14 +16,15 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 define('DB_PASSWORD', $_ENV['MYSQL_DB_PASSWORD']);
 
 class DB {
   // initial connection
-  public static $dbName = 'heroku_92be9b375008aca';
-  public static $user = 'bf1bc084cfd2a5';
+  public static $dbName = 'heroku_b04ab404481a953';
+  public static $user = 'bedcf2705a600a';
   public static $password = DB_PASSWORD;
-  public static $host = 'us-cdbr-east-05.cleardb.net';
+  public static $host = 'us-cdbr-iron-east-01.cleardb.net';
   public static $port = null;
   public static $encoding = 'utf8';
   
